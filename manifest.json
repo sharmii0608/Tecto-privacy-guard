@@ -1,0 +1,66 @@
+{
+  "manifest_version": 3,
+  "name": "Tecto - Privacy Guard",
+  "version": "1.5.0",
+  "description": "Privacy protection for sensitive text and image uploads across AI websites.",
+
+  "permissions": [
+    "offscreen"
+  ],
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+
+  "host_permissions": [
+    "http://localhost:3001/*",
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://gemini.google.com/*",
+    "https://claude.ai/*",
+    "https://perplexity.ai/*",
+    "https://*.perplexity.ai/*",
+    "https://chat.deepseek.com/*",
+    "https://notebooklm.google.com/*",
+    "https://aistudio.google.com/*",
+    "https://cursor.com/*",
+    "https://*.cursor.com/*",
+    "https://github.com/*",
+    "https://copilot.microsoft.com/*",
+    "https://*.githubcopilot.com/*"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "action": {
+    "default_title": "Tecto Privacy Guard",
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://gemini.google.com/*",
+        "https://claude.ai/*",
+        "https://perplexity.ai/*",
+        "https://*.perplexity.ai/*",
+        "https://chat.deepseek.com/*",
+        "https://notebooklm.google.com/*",
+        "https://aistudio.google.com/*",
+        "https://cursor.com/*",
+        "https://*.cursor.com/*",
+        "https://github.com/*",
+        "https://copilot.microsoft.com/*",
+        "https://*.githubcopilot.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

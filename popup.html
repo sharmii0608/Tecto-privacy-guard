@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tecto - Privacy Guard</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+
+    <header class="header">
+      <div class="logo">T</div>
+      <div class="header-text">
+        <h1>Tecto</h1>
+        <p>Your Personal Privacy Guard</p>
+      </div>
+      <span class="status-dot"></span>
+    </header>
+
+    <section class="privacy-status">
+      <span class="shield-icon">🛡️</span>
+      <div>
+        <h2>Local Privacy Protection</h2>
+        <p>Your text is scanned in this extension.</p>
+      </div>
+    </section>
+
+    <label for="original" class="section-label">
+      TEXT TO CHECK
+    </label>
+
+    <textarea
+      id="original"
+      placeholder="Paste your text here before sharing it with an AI chatbot..."
+      rows="7"
+    ></textarea>
+
+    <button id="scanBtn" class="primary-btn" type="button">
+      🔍 Scan for Sensitive Data
+    </button>
+
+    <section id="resultSection" hidden>
+      <div class="result-heading">
+        <h2>Scan Results</h2>
+        <span class="result-badge">Completed</span>
+      </div>
+
+      <p id="summary" class="summary" aria-live="polite"></p>
+
+      <label for="sanitized" class="section-label">
+        PROTECTED TEXT
+      </label>
+
+      <textarea
+        id="sanitized"
+        rows="7"
+        readonly
+        placeholder="Your protected text will appear here..."
+      ></textarea>
+
+      <div class="button-row">
+        <button id="copyBtn" class="primary-btn" type="button">
+          📋 Copy Protected Text
+        </button>
+
+        <button id="clearBtn" class="secondary-btn" type="button">
+          Clear
+        </button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>🔒 Designed to process text locally</p>
+      <p class="disclaimer">
+        Review the protected text before sharing. Tecto may not detect every
+        type of sensitive information.
+      </p>
+    </footer>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

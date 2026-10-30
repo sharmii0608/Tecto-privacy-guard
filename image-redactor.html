@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tecto Image Redactor</title>
+  <link rel="stylesheet" href="image-redactor.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Tecto Image Redactor</h1>
+    <p>Select a document image. Mark sensitive areas to hide them.</p>
+
+    <input id="imageInput" type="file" accept="image/*">
+
+    <p class="warning">
+      Important: automatic OCR and face detection are not enabled.
+      Inspect the entire image and manually mark every sensitive area.
+    </p>
+
+    <div class="toolbar">
+      <button id="markBtn" disabled>Mark area to redact</button>
+      <button id="undoBtn" disabled>Undo last mark</button>
+      <button id="downloadBtn" disabled>Download redacted image</button>
+    </div>
+
+    <p id="status" aria-live="polite">Choose an image to begin.</p>
+
+    <div id="canvasWrap">
+      <canvas id="imageCanvas"></canvas>
+    </div>
+
+    <p class="hint">
+      Select “Mark area to redact”, then drag over a PAN/Aadhaar number,
+      QR code, barcode, CVV, account number, or photo. Do not cover the name
+      if you want to keep it visible. Redacted areas become opaque black.
+    </p>
+  </main>
+  <script src="image-redactor.js"></script>
+</body>
+</html>
